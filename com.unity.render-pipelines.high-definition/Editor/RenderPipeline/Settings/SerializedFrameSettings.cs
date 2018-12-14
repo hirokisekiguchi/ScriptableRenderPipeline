@@ -53,351 +53,351 @@ namespace UnityEditor.Experimental.Rendering.HDPipeline
         private  SerializedProperty overrides;
         public bool overridesShadow
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.Shadow) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.Shadow) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.Shadow;
+                    overrides.intValue |= (int)FrameSettingsField.Shadow;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.Shadow;
+                    overrides.intValue &= ~(int)FrameSettingsField.Shadow;
             }
         }
         public bool overridesContactShadow
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.ContactShadow) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.ContactShadow) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.ContactShadow;
+                    overrides.intValue |= (int)FrameSettingsField.ContactShadow;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.ContactShadow;
+                    overrides.intValue &= ~(int)FrameSettingsField.ContactShadow;
             }
         }
         public bool overridesShadowMask
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.ShadowMask) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.ShadowMask) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.ShadowMask;
+                    overrides.intValue |= (int)FrameSettingsField.ShadowMask;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.ShadowMask;
+                    overrides.intValue &= ~(int)FrameSettingsField.ShadowMask;
             }
         }
         public bool overridesSSR
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.SSR) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.SSR) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.SSR;
+                    overrides.intValue |= (int)FrameSettingsField.SSR;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.SSR;
+                    overrides.intValue &= ~(int)FrameSettingsField.SSR;
             }
         }
         public bool overridesSSAO
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.SSAO) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.SSAO) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.SSAO;
+                    overrides.intValue |= (int)FrameSettingsField.SSAO;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.SSAO;
+                    overrides.intValue &= ~(int)FrameSettingsField.SSAO;
             }
         }
         public bool overridesSubsurfaceScattering
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.SubsurfaceScattering) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.SubsurfaceScattering) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.SubsurfaceScattering;
+                    overrides.intValue |= (int)FrameSettingsField.SubsurfaceScattering;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.SubsurfaceScattering;
+                    overrides.intValue &= ~(int)FrameSettingsField.SubsurfaceScattering;
             }
         }
         public bool overridesTransmission
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.Transmission) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.Transmission) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.Transmission;
+                    overrides.intValue |= (int)FrameSettingsField.Transmission;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.Transmission;
+                    overrides.intValue &= ~(int)FrameSettingsField.Transmission;
             }
         }
         public bool overridesAtmosphericScaterring
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.AtmosphericScaterring) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.AtmosphericScaterring) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.AtmosphericScaterring;
+                    overrides.intValue |= (int)FrameSettingsField.AtmosphericScaterring;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.AtmosphericScaterring;
+                    overrides.intValue &= ~(int)FrameSettingsField.AtmosphericScaterring;
             }
         }
         public bool overridesVolumetrics
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.Volumetrics) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.Volumetrics) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.Volumetrics;
+                    overrides.intValue |= (int)FrameSettingsField.Volumetrics;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.Volumetrics;
+                    overrides.intValue &= ~(int)FrameSettingsField.Volumetrics;
             }
         }
         public bool overridesProjectionForVolumetrics
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.ReprojectionForVolumetrics) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.ReprojectionForVolumetrics) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.ReprojectionForVolumetrics;
+                    overrides.intValue |= (int)FrameSettingsField.ReprojectionForVolumetrics;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.ReprojectionForVolumetrics;
+                    overrides.intValue &= ~(int)FrameSettingsField.ReprojectionForVolumetrics;
             }
         }
         public bool overridesLightLayers
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.LightLayers) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.LightLayers) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.LightLayers;
+                    overrides.intValue |= (int)FrameSettingsField.LightLayers;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.LightLayers;
+                    overrides.intValue &= ~(int)FrameSettingsField.LightLayers;
             }
         }
         public bool overridesTransparentPrepass
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.TransparentPrepass) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.TransparentPrepass) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.TransparentPrepass;
+                    overrides.intValue |= (int)FrameSettingsField.TransparentPrepass;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.TransparentPrepass;
+                    overrides.intValue &= ~(int)FrameSettingsField.TransparentPrepass;
             }
         }
         public bool overridesTransparentPostpass
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.TransparentPostpass) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.TransparentPostpass) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.TransparentPostpass;
+                    overrides.intValue |= (int)FrameSettingsField.TransparentPostpass;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.TransparentPostpass;
+                    overrides.intValue &= ~(int)FrameSettingsField.TransparentPostpass;
             }
         }
         public bool overridesMotionVectors
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.MotionVectors) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.MotionVectors) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.MotionVectors;
+                    overrides.intValue |= (int)FrameSettingsField.MotionVectors;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.MotionVectors;
+                    overrides.intValue &= ~(int)FrameSettingsField.MotionVectors;
             }
         }
         public bool overridesObjectMotionVectors
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.ObjectMotionVectors) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.ObjectMotionVectors) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.ObjectMotionVectors;
+                    overrides.intValue |= (int)FrameSettingsField.ObjectMotionVectors;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.ObjectMotionVectors;
+                    overrides.intValue &= ~(int)FrameSettingsField.ObjectMotionVectors;
             }
         }
         public bool overridesDecals
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.Decals) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.Decals) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.Decals;
+                    overrides.intValue |= (int)FrameSettingsField.Decals;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.Decals;
+                    overrides.intValue &= ~(int)FrameSettingsField.Decals;
             }
         }
         public bool overridesRoughRefraction
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.RoughRefraction) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.RoughRefraction) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.RoughRefraction;
+                    overrides.intValue |= (int)FrameSettingsField.RoughRefraction;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.RoughRefraction;
+                    overrides.intValue &= ~(int)FrameSettingsField.RoughRefraction;
             }
         }
         public bool overridesDistortion
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.Distortion) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.Distortion) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.Distortion;
+                    overrides.intValue |= (int)FrameSettingsField.Distortion;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.Distortion;
+                    overrides.intValue &= ~(int)FrameSettingsField.Distortion;
             }
         }
         public bool overridesPostprocess
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.Postprocess) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.Postprocess) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.Postprocess;
+                    overrides.intValue |= (int)FrameSettingsField.Postprocess;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.Postprocess;
+                    overrides.intValue &= ~(int)FrameSettingsField.Postprocess;
             }
         }
         public bool overridesShaderLitMode
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.ShaderLitMode) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.ShaderLitMode) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.ShaderLitMode;
+                    overrides.intValue |= (int)FrameSettingsField.ShaderLitMode;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.ShaderLitMode;
+                    overrides.intValue &= ~(int)FrameSettingsField.ShaderLitMode;
             }
         }
         public bool overridesDepthPrepassWithDeferredRendering
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.DepthPrepassWithDeferredRendering) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.DepthPrepassWithDeferredRendering) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.DepthPrepassWithDeferredRendering;
+                    overrides.intValue |= (int)FrameSettingsField.DepthPrepassWithDeferredRendering;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.DepthPrepassWithDeferredRendering;
+                    overrides.intValue &= ~(int)FrameSettingsField.DepthPrepassWithDeferredRendering;
             }
         }
         public bool overridesAsyncCompute
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.AsyncCompute) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.AsyncCompute) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.AsyncCompute;
+                    overrides.intValue |= (int)FrameSettingsField.AsyncCompute;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.AsyncCompute;
+                    overrides.intValue &= ~(int)FrameSettingsField.AsyncCompute;
             }
         }
 
         public bool overrideLightListInAsync
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.LightListAsync) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.LightListAsync) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.LightListAsync;
+                    overrides.intValue |= (int)FrameSettingsField.LightListAsync;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.LightListAsync;
+                    overrides.intValue &= ~(int)FrameSettingsField.LightListAsync;
             }
         }
 
         public bool overrideSSRInAsync
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.SSRAsync) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.SSRAsync) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.SSRAsync;
+                    overrides.intValue |= (int)FrameSettingsField.SSRAsync;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.SSRAsync;
+                    overrides.intValue &= ~(int)FrameSettingsField.SSRAsync;
             }
         }
 
         public bool overrideSSAOInAsync
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.SSAOAsync) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.SSAOAsync) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.SSAOAsync;
+                    overrides.intValue |= (int)FrameSettingsField.SSAOAsync;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.SSAOAsync;
+                    overrides.intValue &= ~(int)FrameSettingsField.SSAOAsync;
             }
         }
 
         public bool overrideContactShadowsInAsync
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.ContactShadowsAsync) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.ContactShadowsAsync) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.ContactShadowsAsync;
+                    overrides.intValue |= (int)FrameSettingsField.ContactShadowsAsync;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.ContactShadowsAsync;
+                    overrides.intValue &= ~(int)FrameSettingsField.ContactShadowsAsync;
             }
         }
 
         public bool overrideVolumeVoxelizationInAsync
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.VolumeVoxelizationsAsync) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.VolumeVoxelizationsAsync) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.VolumeVoxelizationsAsync;
+                    overrides.intValue |= (int)FrameSettingsField.VolumeVoxelizationsAsync;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.VolumeVoxelizationsAsync;
+                    overrides.intValue &= ~(int)FrameSettingsField.VolumeVoxelizationsAsync;
             }
         }
 
         public bool overridesOpaqueObjects
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.OpaqueObjects) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.OpaqueObjects) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.OpaqueObjects;
+                    overrides.intValue |= (int)FrameSettingsField.OpaqueObjects;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.OpaqueObjects;
+                    overrides.intValue &= ~(int)FrameSettingsField.OpaqueObjects;
             }
         }
         public bool overridesTransparentObjects
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.TransparentObjects) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.TransparentObjects) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.TransparentObjects;
+                    overrides.intValue |= (int)FrameSettingsField.TransparentObjects;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.TransparentObjects;
+                    overrides.intValue &= ~(int)FrameSettingsField.TransparentObjects;
             }
         }
 
         public bool overridesRealtimePlanarReflection
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.RealtimePlanarReflection) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.RealtimePlanarReflection) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.RealtimePlanarReflection;
+                    overrides.intValue |= (int)FrameSettingsField.RealtimePlanarReflection;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.RealtimePlanarReflection;
+                    overrides.intValue &= ~(int)FrameSettingsField.RealtimePlanarReflection;
             }
         }        
 
         public bool overridesMSAA
         {
-            get { return (overrides.intValue & (int)FrameSettingsOverrides.MSAA) > 0; }
+            get { return (overrides.intValue & (int)FrameSettingsField.MSAA) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)FrameSettingsOverrides.MSAA;
+                    overrides.intValue |= (int)FrameSettingsField.MSAA;
                 else
-                    overrides.intValue &= ~(int)FrameSettingsOverrides.MSAA;
+                    overrides.intValue &= ~(int)FrameSettingsField.MSAA;
             }
         }
 

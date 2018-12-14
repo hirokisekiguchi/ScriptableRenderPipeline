@@ -4,32 +4,22 @@ using UnityEngine.Rendering;
 
 namespace UnityEngine.Experimental.Rendering.HDPipeline
 {
-    [Flags]
-    public enum LightLoopSettingsOverrides
-    {
-        FptlForForwardOpaque = 1 << 0,
-        BigTilePrepass = 1 << 1,
-        ComputeLightEvaluation = 1 << 2,
-        ComputeLightVariants = 1 << 3,
-        ComputeMaterialVariants = 1 << 4,
-        TileAndCluster = 1 << 5,
-        //Fptl = 1 << 6, //isFptlEnabled set up by system
-    }
+    //[Flags, Obsolete("for data migration")]
+    //internal enum ObsoleteLightLoopSettingsOverrides
+    //{
+    //    FptlForForwardOpaque = 1 << 0,
+    //    BigTilePrepass = 1 << 1,
+    //    ComputeLightEvaluation = 1 << 2,
+    //    ComputeLightVariants = 1 << 3,
+    //    ComputeMaterialVariants = 1 << 4,
+    //    TileAndCluster = 1 << 5,
+    //    //Fptl = 1 << 6, //isFptlEnabled set up by system
+    //}
 
-    [Serializable]
-    public class LightLoopSettings
+    [Serializable, Obsolete("for data migration")]
+    public class ObsoleteLightLoopSettings
     {
-        static Dictionary<LightLoopSettingsOverrides, Action<LightLoopSettings, LightLoopSettings>> s_Overrides = new Dictionary<LightLoopSettingsOverrides, Action<LightLoopSettings, LightLoopSettings>>
-        {
-            {LightLoopSettingsOverrides.FptlForForwardOpaque, (a, b) => { a.enableFptlForForwardOpaque = b.enableFptlForForwardOpaque; } },
-            {LightLoopSettingsOverrides.BigTilePrepass, (a, b) => { a.enableBigTilePrepass = b.enableBigTilePrepass; } },
-            {LightLoopSettingsOverrides.ComputeLightEvaluation, (a, b) => { a.enableComputeLightEvaluation = b.enableComputeLightEvaluation; } },
-            {LightLoopSettingsOverrides.ComputeLightVariants, (a, b) => { a.enableComputeLightVariants = b.enableComputeLightVariants; } },
-            {LightLoopSettingsOverrides.ComputeMaterialVariants, (a, b) => { a.enableComputeMaterialVariants = b.enableComputeMaterialVariants; } },
-            {LightLoopSettingsOverrides.TileAndCluster, (a, b) => { a.enableTileAndCluster = b.enableTileAndCluster; } },
-        };
-
-        public LightLoopSettingsOverrides overrides;
+        public int overrides; // former type: ObsoleteLightLoopSettingsOverrides
 
         // Setup by the users
         public bool enableTileAndCluster = true;
@@ -44,13 +34,13 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         // Setup by system
         public bool isFptlEnabled = true;
 
-        public LightLoopSettings() { }
-        public LightLoopSettings(LightLoopSettings toCopy)
+        public ObsoleteLightLoopSettings() { }
+        public ObsoleteLightLoopSettings(ObsoleteLightLoopSettings toCopy)
         {
             toCopy.CopyTo(this);
         }
 
-        public void CopyTo(LightLoopSettings lightLoopSettings)
+        public void CopyTo(ObsoleteLightLoopSettings lightLoopSettings)
         {
             lightLoopSettings.enableTileAndCluster = this.enableTileAndCluster;
             lightLoopSettings.enableComputeLightEvaluation = this.enableComputeLightEvaluation;
@@ -65,13 +55,13 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             lightLoopSettings.overrides = this.overrides;
         }
 
-        public void ApplyOverrideOn(LightLoopSettings overridedFrameSettings)
+        public void ApplyOverrideOn(ObsoleteLightLoopSettings overridedFrameSettings)
         {
             if (overrides == 0)
                 return;
 
-            Array values = Enum.GetValues(typeof(LightLoopSettingsOverrides));
-            foreach (LightLoopSettingsOverrides val in values)
+            Array values = Enum.GetValues(typeof(ObsoleteLightLoopSettingsOverrides));
+            foreach (ObsoleteLightLoopSettingsOverrides val in values)
             {
                 if ((val & overrides) > 0)
                 {
@@ -86,10 +76,10 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         // aggregateFrameSettings already contain the aggregation of RenderPipelineSettings and FrameSettings (regular and/or debug)
         public static void InitializeLightLoopSettings(Camera camera, FrameSettings aggregateFrameSettings,
             RenderPipelineSettings renderPipelineSettings, FrameSettings frameSettings,
-            ref LightLoopSettings aggregate)
+            ref ObsoleteLightLoopSettings aggregate)
         {
             if (aggregate == null)
-                aggregate = new LightLoopSettings();
+                aggregate = new ObsoleteLightLoopSettings();
 
             aggregate.enableTileAndCluster = frameSettings.lightLoopSettings.enableTileAndCluster;
             aggregate.enableComputeLightEvaluation = frameSettings.lightLoopSettings.enableComputeLightEvaluation;
@@ -110,7 +100,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             aggregate.isFptlEnabled = aggregateFrameSettings.shaderLitMode == LitShaderMode.Deferred || aggregate.enableFptlForForwardOpaque;
         }
 
-        public static void RegisterDebug(LightLoopSettings lightLoopSettings, List<DebugUI.Widget> widgets)
+        public static void RegisterDebug(ObsoleteLightLoopSettings lightLoopSettings, List<DebugUI.Widget> widgets)
         {
             widgets.AddRange(new[]
             {

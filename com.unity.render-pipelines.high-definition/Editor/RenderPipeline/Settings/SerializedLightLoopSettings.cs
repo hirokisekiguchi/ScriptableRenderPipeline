@@ -18,68 +18,68 @@ namespace UnityEditor.Experimental.Rendering.HDPipeline
         private SerializedProperty overrides;
         public bool overridesFptlForForwardOpaque
         {
-            get { return (overrides.intValue & (int)LightLoopSettingsOverrides.FptlForForwardOpaque) > 0; }
+            get { return (overrides.intValue & (int)ObsoleteLightLoopSettingsOverrides.FptlForForwardOpaque) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)LightLoopSettingsOverrides.FptlForForwardOpaque;
+                    overrides.intValue |= (int)ObsoleteLightLoopSettingsOverrides.FptlForForwardOpaque;
                 else
-                    overrides.intValue &= ~(int)LightLoopSettingsOverrides.FptlForForwardOpaque;
+                    overrides.intValue &= ~(int)ObsoleteLightLoopSettingsOverrides.FptlForForwardOpaque;
             }
         }
         public bool overridesBigTilePrepass
         {
-            get { return (overrides.intValue & (int)LightLoopSettingsOverrides.BigTilePrepass) > 0; }
+            get { return (overrides.intValue & (int)ObsoleteLightLoopSettingsOverrides.BigTilePrepass) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)LightLoopSettingsOverrides.BigTilePrepass;
+                    overrides.intValue |= (int)ObsoleteLightLoopSettingsOverrides.BigTilePrepass;
                 else
-                    overrides.intValue &= ~(int)LightLoopSettingsOverrides.BigTilePrepass;
+                    overrides.intValue &= ~(int)ObsoleteLightLoopSettingsOverrides.BigTilePrepass;
             }
         }
         public bool overridesComputeLightEvaluation
         {
-            get { return (overrides.intValue & (int)LightLoopSettingsOverrides.ComputeLightEvaluation) > 0; }
+            get { return (overrides.intValue & (int)ObsoleteLightLoopSettingsOverrides.ComputeLightEvaluation) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)LightLoopSettingsOverrides.ComputeLightEvaluation;
+                    overrides.intValue |= (int)ObsoleteLightLoopSettingsOverrides.ComputeLightEvaluation;
                 else
-                    overrides.intValue &= ~(int)LightLoopSettingsOverrides.ComputeLightEvaluation;
+                    overrides.intValue &= ~(int)ObsoleteLightLoopSettingsOverrides.ComputeLightEvaluation;
             }
         }
         public bool overridesComputeLightVariants
         {
-            get { return (overrides.intValue & (int)LightLoopSettingsOverrides.ComputeLightVariants) > 0; }
+            get { return (overrides.intValue & (int)ObsoleteLightLoopSettingsOverrides.ComputeLightVariants) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)LightLoopSettingsOverrides.ComputeLightVariants;
+                    overrides.intValue |= (int)ObsoleteLightLoopSettingsOverrides.ComputeLightVariants;
                 else
-                    overrides.intValue &= ~(int)LightLoopSettingsOverrides.ComputeLightVariants;
+                    overrides.intValue &= ~(int)ObsoleteLightLoopSettingsOverrides.ComputeLightVariants;
             }
         }
         public bool overridesComputeMaterialVariants
         {
-            get { return (overrides.intValue & (int)LightLoopSettingsOverrides.ComputeMaterialVariants) > 0; }
+            get { return (overrides.intValue & (int)ObsoleteLightLoopSettingsOverrides.ComputeMaterialVariants) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)LightLoopSettingsOverrides.ComputeMaterialVariants;
+                    overrides.intValue |= (int)ObsoleteLightLoopSettingsOverrides.ComputeMaterialVariants;
                 else
-                    overrides.intValue &= ~(int)LightLoopSettingsOverrides.ComputeMaterialVariants;
+                    overrides.intValue &= ~(int)ObsoleteLightLoopSettingsOverrides.ComputeMaterialVariants;
             }
         }
         public bool overridesTileAndCluster
         {
-            get { return (overrides.intValue & (int)LightLoopSettingsOverrides.TileAndCluster) > 0; }
+            get { return (overrides.intValue & (int)ObsoleteLightLoopSettingsOverrides.TileAndCluster) > 0; }
             set
             {
                 if (value)
-                    overrides.intValue |= (int)LightLoopSettingsOverrides.TileAndCluster;
+                    overrides.intValue |= (int)ObsoleteLightLoopSettingsOverrides.TileAndCluster;
                 else
-                    overrides.intValue &= ~(int)LightLoopSettingsOverrides.TileAndCluster;
+                    overrides.intValue &= ~(int)ObsoleteLightLoopSettingsOverrides.TileAndCluster;
             }
         }
 
@@ -87,15 +87,15 @@ namespace UnityEditor.Experimental.Rendering.HDPipeline
         {
             this.root = root;
 
-            enableTileAndCluster = root.Find((LightLoopSettings l) => l.enableTileAndCluster);
-            enableComputeLightEvaluation = root.Find((LightLoopSettings l) => l.enableComputeLightEvaluation);
-            enableComputeLightVariants = root.Find((LightLoopSettings l) => l.enableComputeLightVariants);
-            enableComputeMaterialVariants = root.Find((LightLoopSettings l) => l.enableComputeMaterialVariants);
-            enableFptlForForwardOpaque = root.Find((LightLoopSettings l) => l.enableFptlForForwardOpaque);
-            enableBigTilePrepass = root.Find((LightLoopSettings l) => l.enableBigTilePrepass);
-            isFptlEnabled = root.Find((LightLoopSettings l) => l.isFptlEnabled);
+            enableTileAndCluster = root.Find((ObsoleteLightLoopSettings l) => l.enableTileAndCluster);
+            enableComputeLightEvaluation = root.Find((ObsoleteLightLoopSettings l) => l.enableComputeLightEvaluation);
+            enableComputeLightVariants = root.Find((ObsoleteLightLoopSettings l) => l.enableComputeLightVariants);
+            enableComputeMaterialVariants = root.Find((ObsoleteLightLoopSettings l) => l.enableComputeMaterialVariants);
+            enableFptlForForwardOpaque = root.Find((ObsoleteLightLoopSettings l) => l.enableFptlForForwardOpaque);
+            enableBigTilePrepass = root.Find((ObsoleteLightLoopSettings l) => l.enableBigTilePrepass);
+            isFptlEnabled = root.Find((ObsoleteLightLoopSettings l) => l.isFptlEnabled);
 
-            overrides = root.Find((LightLoopSettings l) => l.overrides);
+            overrides = root.Find((ObsoleteLightLoopSettings l) => l.overrides);
         }
     }
 }

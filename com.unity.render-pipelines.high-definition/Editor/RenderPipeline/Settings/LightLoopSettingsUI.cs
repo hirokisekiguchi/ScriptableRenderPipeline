@@ -14,7 +14,7 @@ namespace UnityEditor.Experimental.Rendering.HDPipeline
             LightLoop = 1 << 0,
         }
 
-        readonly static ExpandedState<Expandable, LightLoopSettings> k_ExpandedState = new ExpandedState<Expandable, LightLoopSettings>(Expandable.LightLoop, "HDRP");
+        readonly static ExpandedState<Expandable, ObsoleteLightLoopSettings> k_ExpandedState = new ExpandedState<Expandable, ObsoleteLightLoopSettings>(Expandable.LightLoop, "HDRP");
         
         static readonly GUIContent lightLoopSettingsHeaderContent = CoreEditorUtils.GetContent("Light Loop Settings");
 

@@ -93,9 +93,12 @@ namespace UnityEditor.ShaderGraph.Drawing
                 graphEditorView.assetName = value;
             }
         }
-
-        void Update()
+        
+        void OnGUI()
         {
+            if (Event.current.type != EventType.Repaint)
+                return;
+            
             if (m_HasError)
                 return;
 

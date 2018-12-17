@@ -193,10 +193,8 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
                 }
             }
 
-            lightLoopSettings.ApplyOverrideOn(overridedFrameSettings.lightLoopSettings);
-
             //propagate override to be chained
-            overridedFrameSettings.overrides = overrides | overridedFrameSettings.overrides;
+            overridedFrameSettings.overrides |= overrides;
 
             //refresh enums for DebugMenu
             overridedFrameSettings.Refresh();

@@ -788,6 +788,8 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         }
 
         ReflectionProbeCullResults m_ReflectionProbeCullResults;
+        FrameSettings srcFrameSettings;
+        FrameSettings currentFrameSettings;
         protected override void Render(ScriptableRenderContext renderContext, Camera[] cameras)
         {
             if (!m_ValidAPI)

@@ -34,44 +34,6 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         // Setup by system
         public bool isFptlEnabled = true;
 
-        public ObsoleteLightLoopSettings() { }
-        public ObsoleteLightLoopSettings(ObsoleteLightLoopSettings toCopy)
-        {
-            toCopy.CopyTo(this);
-        }
-
-        public void CopyTo(ObsoleteLightLoopSettings lightLoopSettings)
-        {
-            lightLoopSettings.enableTileAndCluster = this.enableTileAndCluster;
-            lightLoopSettings.enableComputeLightEvaluation = this.enableComputeLightEvaluation;
-            lightLoopSettings.enableComputeLightVariants = this.enableComputeLightVariants;
-            lightLoopSettings.enableComputeMaterialVariants = this.enableComputeMaterialVariants;
-
-            lightLoopSettings.enableFptlForForwardOpaque = this.enableFptlForForwardOpaque;
-            lightLoopSettings.enableBigTilePrepass = this.enableBigTilePrepass;
-
-            lightLoopSettings.isFptlEnabled = this.isFptlEnabled;
-
-            lightLoopSettings.overrides = this.overrides;
-        }
-
-        public void ApplyOverrideOn(ObsoleteLightLoopSettings overridedFrameSettings)
-        {
-            if (overrides == 0)
-                return;
-
-            Array values = Enum.GetValues(typeof(ObsoleteLightLoopSettingsOverrides));
-            foreach (ObsoleteLightLoopSettingsOverrides val in values)
-            {
-                if ((val & overrides) > 0)
-                {
-                    s_Overrides[val](overridedFrameSettings, this);
-                }
-            }
-
-            //propagate override to be chained
-            overridedFrameSettings.overrides = overrides | overridedFrameSettings.overrides;
-        }
 
         // aggregateFrameSettings already contain the aggregation of RenderPipelineSettings and FrameSettings (regular and/or debug)
         public static void InitializeLightLoopSettings(Camera camera, FrameSettings aggregateFrameSettings,

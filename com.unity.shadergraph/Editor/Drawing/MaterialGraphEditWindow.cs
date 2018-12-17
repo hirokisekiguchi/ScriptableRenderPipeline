@@ -93,29 +93,37 @@ namespace UnityEditor.ShaderGraph.Drawing
                 graphEditorView.assetName = value;
             }
         }
-        
+
+        bool m_HandleNextUpdate;
+
         void OnGUI()
         {
-            if (Event.current.type != EventType.Repaint)
-                return;
-            
-            if (m_HasError)
-                return;
-
-            if (PlayerSettings.colorSpace != m_ColorSpace)
-            {
-                graphEditorView = null;
-                m_ColorSpace = PlayerSettings.colorSpace;
-            }
-
-            if (GraphicsSettings.renderPipelineAsset != m_RenderPipelineAsset)
-            {
-                graphEditorView = null;
-                m_RenderPipelineAsset = GraphicsSettings.renderPipelineAsset;
-            }
-
+            m_HandleNextUpdate = true;
+        }
+        
+        void Update()
+        {
             try
             {
+                if (!m_HandleNextUpdate)
+                    return;
+                m_HandleNextUpdate = false;
+            
+                if (m_HasError)
+                    return;
+
+                if (PlayerSettings.colorSpace != m_ColorSpace)
+                {
+                    graphEditorView = null;
+                    m_ColorSpace = PlayerSettings.colorSpace;
+                }
+
+                if (GraphicsSettings.renderPipelineAsset != m_RenderPipelineAsset)
+                {
+                    graphEditorView = null;
+                    m_RenderPipelineAsset = GraphicsSettings.renderPipelineAsset;
+                }
+                
                 if (graphObject == null && selectedGuid != null)
                 {
                     var guid = selectedGuid;

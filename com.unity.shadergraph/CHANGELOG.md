@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - The `Color` node control is now a consistent width.
 - Function declarations no longer contain double delimiters.
 - The `Slider` node control now functions correctly.
+- Unity no longer crashes on Metal when Shader Graph is open while the Unity Editor does not have focus.
 
 ## [5.2.0] - 2018-11-27
 ### Added

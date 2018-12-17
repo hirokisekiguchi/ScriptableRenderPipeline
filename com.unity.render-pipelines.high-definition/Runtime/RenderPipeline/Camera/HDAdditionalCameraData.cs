@@ -54,15 +54,26 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         // Event used to override HDRP rendering for this particular camera.
         public event Action<ScriptableRenderContext, HDCamera> customRender;
         public bool hasCustomRender { get { return customRender != null; } }
-        
+
         // To be able to turn on/off FrameSettings properties at runtime for debugging purpose without affecting the original one
         // we create a runtime copy (m_ActiveFrameSettings that is used, and any parametrization is done on serialized frameSettings)
         [SerializeField]
-        [FormerlySerializedAs("serializedFrameSettings")]
-        FrameSettings m_FrameSettings = new FrameSettings(); // Serialize frameSettings
+        [FormerlySerializedAs("serializedFrameSettings"), FormerlySerializedAs("m_FrameSettings")]
+        ObsoleteFrameSettings m_ObsoleteFrameSettings;
+
+        [SerializeField]
+        FrameSettings m_RenderingPathCustomFrameSettings = FrameSettings.@default;
+
+        [SerializeField]
+        FrameSettingsOverrideMask m_RenderingPathCustomOverrideFrameSettings;
+
+        public FrameSettings renderingPathCustomFrameSettings => m_RenderingPathCustomFrameSettings;
+        public FrameSettingsOverrideMask renderingPathCustomOverrideFrameSettings => m_RenderingPathCustomOverrideFrameSettings;
+
+
 
         // Not serialized, visible only in the debug windows
-        FrameSettings m_FrameSettingsRuntime = new FrameSettings();
+        FrameSettings m_FrameSettingsRuntime = FrameSettings.@default;
 
         bool m_frameSettingsIsDirty = true;
 
@@ -122,29 +133,6 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
 
         // IDebugData interface required to reset DebugMenu's FrameSettings
         Action IDebugData.GetReset() => () => m_FrameSettings.CopyTo(m_FrameSettingsRuntime);
-
-        // This function is call at the beginning of camera loop in HDRenderPipeline.Render()
-        // It allow to correctly init the m_FrameSettingsRuntime to use.
-        // If the camera use defaultFrameSettings it must be copied in m_FrameSettingsRuntime
-        // otherwise it is the serialized m_FrameSettings that are used
-        // This is required so each camera have its own debug settings even if they all use the RenderingPath.Default path
-        // and important at Runtime as Default Camera from Scene Preview doesn't exist
-        // assetFrameSettingsIsDirty is the current dirty frame settings state of HDRenderPipelineAsset
-        // if it is dirty and camera use RenderingPath.Default, we need to update it
-        // defaultFrameSettings are the settings store in the HDRenderPipelineAsset
-        public void UpdateDirtyFrameSettings(bool assetFrameSettingsIsDirty, FrameSettings defaultFrameSettings)
-        {
-            if (m_frameSettingsIsDirty || assetFrameSettingsIsDirty)
-            {
-                // We do a copy of the settings to those effectively used
-                defaultFrameSettings.CopyTo(m_FrameSettingsRuntime);
-
-                if (!fullscreenPassthrough && customRenderingSettings)
-                    m_FrameSettings.ApplyOverrideOn(m_FrameSettingsRuntime);
-
-                m_frameSettingsIsDirty = false;
-            }
-        }
 
         // For custom projection matrices
         // Set the proper getter

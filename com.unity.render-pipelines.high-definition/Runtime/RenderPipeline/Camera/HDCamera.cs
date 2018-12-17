@@ -225,8 +225,8 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
 
             // Handle memory allocation.
             {
-                bool isColorPyramidHistoryRequired = m_frameSettings.enableSSR; // TODO: TAA as well
-                bool isVolumetricHistoryRequired   = m_frameSettings.enableVolumetrics && m_frameSettings.enableReprojectionForVolumetrics;
+                bool isColorPyramidHistoryRequired = m_frameSettings.ssr; // TODO: TAA as well
+                bool isVolumetricHistoryRequired   = m_frameSettings.volumetrics && m_frameSettings.reprojectionForVolumetrics;
 
                 int numColorPyramidBuffersRequired = isColorPyramidHistoryRequired ? 2 : 1; // TODO: 1 -> 0
                 int numVolumetricBuffersRequired   = isVolumetricHistoryRequired   ? 2 : 0; // History + feedback
@@ -260,7 +260,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             // non-jittered projection matrix can be accessed via nonJitteredProjMatrix.
             bool taaEnabled = camera.cameraType == CameraType.Game &&
                 HDUtils.IsTemporalAntialiasingActive(postProcessLayer) &&
-                m_frameSettings.enablePostprocess;
+                m_frameSettings.postprocess;
 
             var nonJitteredCameraProj = camera.projectionMatrix;
             var cameraProj = taaEnabled

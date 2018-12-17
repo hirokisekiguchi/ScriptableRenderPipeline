@@ -319,7 +319,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         // The results are undefined otherwise.
         public void UpdatePerCameraData(HDCamera hdCamera)
         {
-            if (!hdCamera.frameSettings.enableVolumetrics)
+            if (!hdCamera.frameSettings.volumetrics)
                 return;
 
             var parameters = ComputeVBufferParameters(hdCamera);
@@ -453,7 +453,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
 
             // VisualEnvironment sets global fog parameters
 
-            if (!hdCamera.frameSettings.enableVolumetrics || visualEnvironment.fogType.value != FogType.Volumetric)
+            if (!hdCamera.frameSettings.volumetrics || visualEnvironment.fogType.value != FogType.Volumetric)
             {
                 var neutralTexture = UnityEngine.Rendering.PostProcessing.RuntimeUtilities.transparentTexture3D;
                 cmd.SetGlobalTexture(HDShaderIDs._VBufferLighting, neutralTexture);
@@ -494,7 +494,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         {
             DensityVolumeList densityVolumes = new DensityVolumeList();
 
-            if (!hdCamera.frameSettings.enableVolumetrics)
+            if (!hdCamera.frameSettings.volumetrics)
                 return densityVolumes;
 
             var visualEnvironment = VolumeManager.instance.stack.GetComponent<VisualEnvironment>();
@@ -553,7 +553,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
 
         public void VolumeVoxelizationPass(HDCamera hdCamera, CommandBuffer cmd, uint frameIndex, DensityVolumeList densityVolumes, LightLoop lightLoop)
         {
-            if (!hdCamera.frameSettings.enableVolumetrics)
+            if (!hdCamera.frameSettings.volumetrics)
                 return;
 
             var visualEnvironment = VolumeManager.instance.stack.GetComponent<VisualEnvironment>();
@@ -667,7 +667,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
 
         public void VolumetricLightingPass(HDCamera hdCamera, CommandBuffer cmd, uint frameIndex)
         {
-            if (!hdCamera.frameSettings.enableVolumetrics)
+            if (!hdCamera.frameSettings.volumetrics)
                 return;
 
             var visualEnvironment = VolumeManager.instance.stack.GetComponent<VisualEnvironment>();
@@ -682,7 +682,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
                 // Only available in the Play Mode because all the frame counters in the Edit Mode are broken.
                 bool tiledLighting      = hdCamera.frameSettings.lightLoopSettings.enableBigTilePrepass;
                 bool enableReprojection = Application.isPlaying && hdCamera.camera.cameraType == CameraType.Game &&
-                                          hdCamera.frameSettings.enableReprojectionForVolumetrics;
+                                          hdCamera.frameSettings.reprojectionForVolumetrics;
                 bool enableAnisotropy   = fog.anisotropy != 0;
                 bool highQuality        = preset == VolumetricLightingPreset.High;
 

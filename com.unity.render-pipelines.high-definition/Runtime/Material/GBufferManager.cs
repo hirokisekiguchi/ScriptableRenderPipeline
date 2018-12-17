@@ -85,10 +85,10 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             int gbufferIndex = 0;
             for (int i = 0; i < m_BufferCount; ++i)
             {
-                if (m_GBufferUsage[i] == GBufferUsage.ShadowMask && !frameSettings.enableShadowMask)
+                if (m_GBufferUsage[i] == GBufferUsage.ShadowMask && !frameSettings.shadowMask)
                     continue; // Skip
 
-                if (m_GBufferUsage[i] == GBufferUsage.LightLayers && !frameSettings.enableLightLayers)
+                if (m_GBufferUsage[i] == GBufferUsage.LightLayers && !frameSettings.lightLayers)
                     continue; // Skip
 
                 gbufferIndex++;
@@ -101,10 +101,10 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             // nameID can change from one frame to another depending on the msaa flag so so we need to update this array to be sure it's up to date.
             for (int i = 0; i < m_BufferCount; ++i)
             {
-                if (m_GBufferUsage[i] == GBufferUsage.ShadowMask && !frameSettings.enableShadowMask)
+                if (m_GBufferUsage[i] == GBufferUsage.ShadowMask && !frameSettings.shadowMask)
                     continue; // Skip
 
-                if (m_GBufferUsage[i] == GBufferUsage.LightLayers && !frameSettings.enableLightLayers)
+                if (m_GBufferUsage[i] == GBufferUsage.LightLayers && !frameSettings.lightLayers)
                     continue; // Skip
 
                 m_RTIDsArrayCurrent[gbufferIndex] = m_RTs[i].nameID;

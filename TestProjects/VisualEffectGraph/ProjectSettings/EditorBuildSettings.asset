@@ -23,19 +23,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/AllTests/VFXTests/GraphicsTests/05_MotionVectors.unity
     guid: 24824e132e4c94b43818ee0460ae321c
-  - enabled: 1
+  - enabled: 0
     path: Assets/AllTests/VFXTests/GraphicsTests/06_LineOutput.unity
     guid: ad1aa14fb546a3744b989a07c0415a94
   - enabled: 1
     path: Assets/AllTests/VFXTests/GraphicsTests/07_UnityLogo.unity
     guid: e9cdfe0298ff8db4989c389251f87663
-  - enabled: 1
+  - enabled: 0
     path: Assets/AllTests/VFXTests/GraphicsTests/08_Shadows.unity
     guid: 9841d2a225946a540a9a45cebafc019b
   - enabled: 1
     path: Assets/AllTests/VFXTests/GraphicsTests/09_AttributeMaps.unity
     guid: 82e42e996bcf5c44ca4897841e3c4f52
-  - enabled: 1
+  - enabled: 0
     path: Assets/AllTests/VFXTests/GraphicsTests/10_SortPriority.unity
     guid: 5851a3c3acfab9c4ca6ee81e76ae49b3
   - enabled: 1
